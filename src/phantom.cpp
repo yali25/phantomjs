@@ -295,7 +295,7 @@ bool Phantom::webdriverMode() const
 
 // public slots:
 QObject *Phantom::createCookieJar(const QString& filePath) {
-    return new CookieJar(filePath, this);
+    return new CookieJar(m_config.cookiesFile() != "" ? m_config.cookiesFile() : filePath, this);
 }
 
 QObject *Phantom::createWebPage()
